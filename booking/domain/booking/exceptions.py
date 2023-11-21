@@ -1,0 +1,1 @@
+print("trata exceçoes")
