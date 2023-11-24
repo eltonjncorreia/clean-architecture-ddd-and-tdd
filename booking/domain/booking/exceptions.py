@@ -3,7 +3,7 @@ from enum import Enum
 
 class ErrorCodes(Enum):
     CHECKINAFTERCHECKOUT = "checkin cannot be after checkout"
-    CUSTOMERISREQUIRED = "customer is required"
+    CUSTOMERISREQUIRED = "customer name is required"
 
 
 class CheckinDateCannotBeAfterCheckoutDate(Exception):
@@ -12,7 +12,7 @@ class CheckinDateCannotBeAfterCheckoutDate(Exception):
         self.code = code
 
 
-class CustomerNotFound(Exception):
+class CustomerNameRequired(Exception):
     def __init__(self, message: str, code: str = ErrorCodes.CUSTOMERISREQUIRED) -> None:
         self.message = message
         self.code = code

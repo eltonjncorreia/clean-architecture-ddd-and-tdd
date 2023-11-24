@@ -6,7 +6,7 @@ Esse modulo 'managers' também as vezes é nomeado de 'services'")
 from typing import Dict
 
 from booking.application.booking.dtos import BookingDTO
-from booking.domain.booking.exceptions import CheckinDateCannotBeAfterCheckoutDate, CustomerNotFound
+from booking.domain.booking.exceptions import CheckinDateCannotBeAfterCheckoutDate, CustomerNameRequired
 
 
 class BookingManager(object):
@@ -20,5 +20,5 @@ class BookingManager(object):
             else:
                 return {"message": "not save"}
 
-        except (CheckinDateCannotBeAfterCheckoutDate, CustomerNotFound) as e:
+        except (CheckinDateCannotBeAfterCheckoutDate, CustomerNameRequired) as e:
             return {"message": e.message, "code": e.code}
